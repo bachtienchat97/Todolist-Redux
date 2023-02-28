@@ -1,7 +1,7 @@
 import { Col, Row, Input, Typography, Radio, Select, Tag } from 'antd';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchFilterChange, statusFilterChange, priorityFilterChange } from '../../redux/actions';
+import filterSlice from './filterSlice';
 
 const { Search } = Input;
 
@@ -13,17 +13,17 @@ export default function Filters() {
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
-    dispatch(searchFilterChange(e.target.value));
+    dispatch(filterSlice.actions.searchFilterChange(e.target.value));
   }
 
   const handleStatusChange = (e) => {
     setFilterStatus(e.target.value);
-    dispatch(statusFilterChange(e.target.value))
+    dispatch(filterSlice.actions.statusFilterChange(e.target.value))
   }
 
   const handlePriorityChange = (value) => {
     setFilterPriority(value);
-    dispatch(priorityFilterChange(value))
+    dispatch(filterSlice.actions.priorityFilterChange(value))
   }
   return (
     <Row justify='center'>
