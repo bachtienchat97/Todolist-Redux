@@ -41,7 +41,6 @@ export const addNewTodo = createAsyncThunk('todos/addNewTodo', async (newTodo) =
     body: JSON.stringify(newTodo)
   });
   const data = await response.json();
-  console.log(data.todos)
   return data.todos;
 })
 
@@ -51,7 +50,6 @@ export const updateTodo = createAsyncThunk('todos/updateTodo', async (updateTodo
     body: JSON.stringify(updateTodo)
   });
   const data = await response.json();
-  console.log('update',data)
   return data.todos;
 })
 /** 
